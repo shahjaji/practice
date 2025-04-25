@@ -1,113 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <title>Studend Registration Form</title>
-  </head>
-  <body class="container">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <title>Student Registration Form</title>
+    <style>
+        /* Make table scrollable on small screens */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        th,
+        td {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body class="container">
     <header>
-      <h1 class="text-center h1">Student Registration Form</h1>
-      <p class="text-center">Submit your student details below.</p>
+        <h1 class="text-center">Student Registration Form</h1>
+        <p class="text-center">Submit your student details below.</p>
     </header>
 
     <main class="mt-5">
-      <section
-        class="container-xl col-12 col-md-8 section shadow-lg px-5 py-3 mb-5"
-      >
-        <form action="post">
-          <h2 class="text-center mb-3">Register student</h2>
-          <div class="mb-3">
-            <label for="Firstname" class="form-label" required=""
-              >First Names:</label
-            >
-            <input type="text" class="form-control" id="Firstname" />
-          </div>
-          <div class="mb-3">
-            <label for="lastname" class="form-label" aria-required=""
-              >Last Name:</label
-            >
-            <input type="text" class="form-control" id="lastname" />
-          </div>
-          <div class="mb-3">
-            <label for="Gender" class="form-label" required>Gender:</label>
-            <select
-              class="form-select container-fluid"
-              id="Gender"
-              aria-label="Default select example"
-            >
-              <option value="1">Select Gender</option>
-              <option value="1">Male</option>
-              <option value="2">Female</option>
-              <option value="3">Other</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="Email" class="form-label" aria-required=""
-              >Email:</label
-            >
-            <input type="email" class="form-control" id="Email" />
-          </div>
-          <div class="mb-3">
-            <label for="phone" class="form-label" aria-required=""
-              >Phone Number:</label
-            >
-            <input type="text" class="form-control" id="phone" />
-          </div>
-          <div class="mb-3">
-            <label for="age" class="form-label" aria-required="">Age:</label>
-            <input type="number" class="form-control" id="age" />
-          </div>
-          <div class="mb-3">
-            <label for="Address" class="form-label" aria-required=""
-              >Address:</label
-            >
-            <input type="text" class="form-control" id="Address" />
-          </div>
-          <button type="submit" class="btn btn-success">submit</button>
-        </form>
-      </section>
-      <section>
-        <h2 class="text-center">Students Record</h2>
-        <table class="border container col-11">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Gender</th>
-              <th>Email</th>
-              <th>Phone Number</th>
-              <th>Age</th>
-              <th>Address</th>
-            </tr>
-          </thead>
-          <tbody>
+        <!-- Registration Form -->
+        <section class="container-xl col-12 col-md-8 shadow-lg px-5 py-3 mb-5">
+            <form id="studentForm">
+                <h2 class="text-center mb-3">Register student</h2>
 
-          </tbody>
-        </table>
-      </section>
+                <div class="mb-3">
+                    <label for="Firstname" class="form-label">First Name:</label>
+                    <input type="text" class="form-control" id="Firstname" name="Firstname" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="lastname" class="form-label">Last Name:</label>
+                    <input type="text" class="form-control" id="lastname" name="lastname" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="Gender" class="form-label">Gender:</label>
+                    <select class="form-select" id="Gender" name="Gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="Email" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="Email" name="Email" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone Number:</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="age" class="form-label">Age:</label>
+                    <input type="number" class="form-control" id="age" name="age" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="Address" class="form-label">Address:</label>
+                    <input type="text" class="form-control" id="Address" name="Address" required />
+                </div>
+
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </section>
+
+        <!-- Students Table -->
+        <section>
+            <h2 class="text-center">Students Record</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered text-nowrap">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Gender</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Age</th>
+                            <th>Address</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTableBody"></tbody>
+                </table>
+            </div>
+        </section>
     </main>
 
     <footer class="container mt-4">
-      <p class="text-center">© 2025 Student Registration form. All rights reserved</p>
+        <p class="text-center">
+            © 2025 Student Registration Form. All rights reserved.
+        </p>
     </footer>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+        const form = document.getElementById("studentForm");
+        const tableBody = document.getElementById("studentTableBody");
+        let studentID = 1;
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // prevent page reload
+
+            const firstName = document.getElementById("Firstname").value.trim();
+            const lastName = document.getElementById("lastname").value.trim();
+            const gender = document.getElementById("Gender").value;
+            const email = document.getElementById("Email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const age = document.getElementById("age").value.trim();
+            const address = document.getElementById("Address").value.trim();
+
+            // Create new row
+            const row = document.createElement("tr");
+            row.innerHTML = `
+          <td>${studentID++}</td>
+          <td>${firstName}</td>
+          <td>${lastName}</td>
+          <td>${gender}</td>
+          <td>${email}</td>
+          <td>${phone}</td>
+          <td>${age}</td>
+          <td>${address}</td>
+        `;
+
+            // Append row to table
+            tableBody.appendChild(row);
+
+            // Reset the form
+            form.reset();
+        });
+    </script>
+</body>
+
 </html>
